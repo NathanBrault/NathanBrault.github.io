@@ -229,18 +229,23 @@ ul { list-style: none; }
 .nav__burger {
   display: none;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  padding: 6px;
+  z-index: 101;
+  position: relative;
 }
 
 .nav__burger span {
   display: block;
-  width: 24px; height: 1.5px;
+  width: 24px; height: 2px;
   background: var(--color-text);
-  transition: all .25s var(--ease);
+  border-radius: 2px;
+  transition: all .28s var(--ease);
+  transform-origin: center;
 }
 
 /* ============================================================
@@ -712,51 +717,137 @@ ul { list-style: none; }
 }
 
 /* ============================================================
-   RESPONSIVE
+   RESPONSIVE — TABLETTE (681px – 900px)
    ============================================================ */
 @media (max-width: 900px) {
-  .about__grid   { grid-template-columns: 1fr; gap: 2.5rem; }
-  .about__image-wrap { order: -1; }
-  .about__image-placeholder { width: 160px; height: 160px; }
-  .contact__grid { grid-template-columns: 1fr; gap: 3rem; }
+  .nav { padding: 1rem 1.5rem; }
 
+  /* About : colonne unique, photo centrée en haut */
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+  .about__image-wrap { order: -1; }
+  .about__image-placeholder { width: 180px; height: 180px; }
+  .about__lead { font-size: 1.2rem; }
+  .about__facts li { justify-content: center; text-align: left; }
+
+  /* Skills : 2 colonnes */
+  .skills__grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Projects */
   .project-card {
-    grid-template-columns: 40px 1fr;
+    grid-template-columns: 48px 1fr;
     grid-template-rows: auto auto;
+    gap: .75rem 1.5rem;
   }
   .project-card__links {
     grid-column: 2;
     flex-direction: row;
     align-items: center;
   }
+
+  /* Contact */
+  .contact__grid { grid-template-columns: 1fr; gap: 3rem; }
+  .contact__solo { max-width: 100%; }
 }
 
+/* ============================================================
+   RESPONSIVE — MOBILE (≤ 680px)
+   ============================================================ */
 @media (max-width: 680px) {
   :root { --section-pad: 4.5rem 0; }
 
-  .nav { padding: 1rem 1.25rem; }
+  /* Nav */
+  .nav { padding: .9rem 1.25rem; }
   .nav__links { display: none; }
   .nav__links.open {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 100%; left: 0; right: 0;
-    background: var(--color-bg);
-    border-top: 1px solid var(--color-border);
-    padding: 1.25rem 2rem;
-    gap: 1.25rem;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(253, 250, 247, .97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 6rem 2rem 2rem;
+    gap: 2rem;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 99;
+    border: none;
+  }
+  .nav__links.open .nav__link {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-text);
   }
   .nav__burger { display: flex; }
 
-  .hero { padding: 5rem 1.25rem 3rem; }
+  /* Burger animé en × */
+  .nav__burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav__burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .nav__burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Hero */
+  .hero { padding: 5.5rem 1.25rem 3rem; }
+  .hero__title {
+    font-size: clamp(3rem, 17vw, 5rem);
+    margin-bottom: 1rem;
+  }
+  .hero__subtitle {
+    font-size: .95rem;
+    margin-bottom: 2rem;
+    max-width: 100%;
+  }
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: .75rem;
+  }
+  .hero__actions .btn { width: 100%; justify-content: center; }
   .hero__scroll-hint { display: none; }
 
+  /* Layout */
   .container { padding: 0 1.25rem; }
+  .section__header { margin-bottom: 2rem; }
 
-  .project-card { padding: 1.5rem; gap: 1rem; }
+  /* About */
+  .about__grid { gap: 1.75rem; }
+  .about__image-placeholder { width: 150px; height: 150px; }
+  .about__lead { font-size: 1.05rem; }
+  .about__facts li { font-size: .85rem; }
+
+  /* Skills : 1 colonne */
+  .skills__grid { grid-template-columns: 1fr; gap: 1rem; }
+  .skill-card { padding: 1.25rem 1.5rem; }
+
+  /* Projects */
+  .project-card {
+    grid-template-columns: 1fr;
+    padding: 1.25rem;
+    gap: .6rem;
+  }
   .project-card__num { display: none; }
-  .project-card { grid-template-columns: 1fr; }
-  .project-card__links { flex-direction: row; align-items: center; }
+  .project-card__links { grid-column: 1; flex-direction: row; }
+  .project-card__title { font-size: 1.1rem; }
+  .project-card__desc { font-size: .85rem; max-width: 100%; margin-bottom: .75rem; }
 
+  /* Contact */
+  .contact__lead { font-size: 1.05rem; }
+  .contact__links li { font-size: .875rem; }
+
+  /* Footer */
   .footer__credit { display: none; }
+  .footer__inner { justify-content: center; }
+}
+
+/* ============================================================
+   RESPONSIVE — TRÈS PETIT MOBILE (≤ 375px)
+   ============================================================ */
+@media (max-width: 375px) {
+  .hero__title { font-size: clamp(2.6rem, 19vw, 3.8rem); }
+  .nav__name { font-size: .8rem; }
+  .about__image-placeholder { width: 130px; height: 130px; }
+  .skill-card { padding: 1rem 1.1rem; }
 }
