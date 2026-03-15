@@ -15,13 +15,21 @@ window.addEventListener('scroll', () => {
 
 burger.addEventListener('click', () => {
   links.classList.toggle('open');
+  burger.classList.toggle('open');
   const isOpen = links.classList.contains('open');
   burger.setAttribute('aria-expanded', isOpen);
+  // Empêche le scroll de la page quand le menu est ouvert
+  document.body.style.overflow = isOpen ? 'hidden' : '';
 });
 
 // Ferme le menu burger sur clic lien
 links.querySelectorAll('.nav__link').forEach(link => {
-  link.addEventListener('click', () => links.classList.remove('open'));
+  link.addEventListener('click', () => {
+    links.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', false);
+    document.body.style.overflow = '';
+  });
 });
 
 // ── 2. Active link au scroll ─────────────────────────────────
