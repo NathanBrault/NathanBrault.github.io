@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Nathan Brault</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo">
+      <span class="nav__name">Nathan Brault</span>
+    </div>
+    <ul class="nav__links">
+      <li><a href="#about" class="nav__link">A propos</a></li>
+      <li><a href="#skills" class="nav__link">Compétences</a></li>
+      <li><a href="#projects" class="nav__link">Projets</a></li>
+      <li><a href="#contact" class="nav__link">Contact</a></li>
+    </ul>
+    <button class="nav__burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero__bg-svg" aria-hidden="true">
+      <svg width="100%" height="100%" viewBox="0 0 680 170" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="fade-bottom" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="60%"  stop-color="#f9f3ec" stop-opacity="0"/>
+            <stop offset="100%" stop-color="#f9f3ec" stop-opacity="1"/>
+          </linearGradient>
+          <linearGradient id="fade-right" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%"   stop-color="#f3e8da" stop-opacity="1"/>
+            <stop offset="68%"  stop-color="#f3e8da" stop-opacity="0.75"/>
+            <stop offset="85%"  stop-color="#f3e8da" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#f3e8da" stop-opacity="0.04"/>
+          </linearGradient>
+        </defs>
+        <!-- COUCHE 1 — lointaine -->
+        <g font-family="'Courier New',monospace" font-size="13.5" fill="#7d5138" opacity="0.10" transform="translate(-10, 4)">
+          <text x="0" y="18">import pandas as pd; from sklearn.model_selection import train_test_split; import numpy as np</text>
+          <text x="0" y="36">SELECT u.name, COUNT(o.id) AS orders FROM users u LEFT JOIN orders o ON u.id = o.user_id GROUP BY u.name</text>
+          <text x="0" y="54">docker-compose up --build -d &amp;&amp; docker logs -f api_container | grep ERROR | tail -n 20</text>
+          <text x="0" y="72">git rebase -i HEAD~3 &amp;&amp; git push --force-with-lease origin feature/auth &amp;&amp; gh pr create</text>
+          <text x="0" y="90">class UserController { async getAll(req, res) { const users = await User.findAll(); res.json(users); }}</text>
+          <text x="0" y="108">kubectl rollout status deployment/api &amp;&amp; kubectl get pods --all-namespaces -n production</text>
+          <text x="0" y="126">pytest src/ -v --cov=app --cov-report=term-missing --tb=short -x</text>
+          <text x="0" y="144">terraform apply -auto-approve -var="env=production" -var="region=eu-west-1"</text>
+          <text x="0" y="162">CREATE INDEX idx_user_email ON users(email); EXPLAIN ANALYZE SELECT * FROM users WHERE email=$1;</text>
+        </g>
+        <!-- COUCHE 2 — intermédiaire -->
+        <g font-family="'Courier New',monospace" font-size="11" fill="#9a6847" opacity="0.17" transform="translate(0, -3)">
+          <text x="0" y="24">async function authenticate(token) { const payload = jwt.verify(token, SECRET); return payload; }</text>
+          <text x="0" y="42">const [data, setData] = useState([]); useEffect(() => { fetchData('/api/users').then(setData); }, []);</text>
+          <text x="0" y="60">UPDATE products SET stock = stock - 1 WHERE id = $1 AND stock &gt; 0 RETURNING id, stock;</text>
+          <text x="0" y="78">model = Sequential([Dense(128, activation='relu'), Dropout(0.3), Dense(10, activation='softmax')])</text>
+          <text x="0" y="96">router.get('/users/:id', authMiddleware, async (req, res) =&gt; { const user = await findById(id); })</text>
+          <text x="0" y="114">df.groupby('category')['revenue'].agg(['sum','mean','count']).sort_values('sum', ascending=False)</text>
+          <text x="0" y="132">services: api: build: . ports: - "3000:3000" depends_on: - postgres - redis</text>
+          <text x="0" y="150">const schema = z.object({ email: z.string().email(), password: z.string().min(8) });</text>
+          <text x="0" y="168">npm run lint &amp;&amp; npm run test -- --coverage &amp;&amp; npm run build</text>
+        </g>
+        <!-- COUCHE 3 — premier plan -->
+        <g font-family="'Courier New',monospace" font-size="9" fill="#c79a7a" opacity="0.28" transform="translate(4, 1)">
+          <text x="0" y="14">import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';</text>
+          <text x="0" y="28">const userSlice = createSlice({ name: 'user', initialState: null, reducers: { setUser, logout } });</text>
+          <text x="0" y="42">export const { setUser, logout } = userSlice.actions;</text>
+          <text x="0" y="56">WITH ranked AS ( SELECT *, ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY created_at DESC) AS rn</text>
+          <text x="0" y="70">FROM sessions ) SELECT * FROM ranked WHERE rn = 1;</text>
+          <text x="0" y="84">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)</text>
+          <text x="0" y="98">scaler = StandardScaler(); X_train = scaler.fit_transform(X_train); X_test = scaler.transform(X_test)</text>
+          <text x="0" y="112">curl -X POST https://api.example.com/auth -H "Content-Type: application/json" -d '{"email":"test@mail.com"}'</text>
+          <text x="0" y="126">COPY users(name, email, role) FROM '/data/users.csv' DELIMITER ',' CSV HEADER;</text>
+          <text x="0" y="140">app.use('/api', rateLimiter({ windowMs: 15*60*1000, max: 100 }));</text>
+          <text x="0" y="154">prometheus_client.start_http_server(8000); gauge.set(psutil.cpu_percent())</text>
+          <text x="0" y="168">ssh -i key.pem ubuntu@server "cd /app &amp;&amp; git pull &amp;&amp; pm2 restart all"</text>
+        </g>
+        <rect width="680" height="170" fill="url(#fade-right)"/>
+        <rect width="680" height="170" fill="url(#fade-bottom)"/>
+      </svg>
+    </div>
+    <div class="hero__content">
+      <h1 class="hero__title">
+        Nathan<br />
+        <em>Brault</em>
+      </h1>
+      <p class="hero__subtitle">Étudiant à l'Université Paris-Saclay en première année de BUT Informatique à la recherche d'une alternance. </p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--primary">Me contacter</a>
+        <a href="CV_Nathan_Brault.pdf" class="btn btn--outline" download>Télécharger CV</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- A PROPOS -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">01 — A propos</span>
+        <h2 class="section__title">Qui suis-je ?</h2>
+      </div>
+      <div class="about__grid">
+        <div class="about__text">
+          <p class="about__lead">
+            Étudiant passionné par le développement, je cherche une alternance pour mettre mes compétences en pratique dans un environnement professionnel stimulant.
+          </p>
+          <p>
+            En première année de <strong>BUT Informatique</strong> à l'IUT d'Orsay (Université Paris-Saclay), je combine une formation solide avec des projets concrets qui m'ont permis de développer une vraie autonomie technique.
+          </p>
+          <ul class="about__facts">
+            <li>
+              <span class="about__fact-icon">◆</span>
+              <span>Cherche un contrat pour 24 mois, rythme 3j IUT / 2j entreprise</span>
+            </li>
+            <li>
+              <span class="about__fact-icon">◆</span>
+              <span>Basé à Fontenay-lès-Briis (91) — mobilité Île-de-France</span>
+            </li>
+            <li>
+              <span class="about__fact-icon">◆</span>
+              <span>Permis B · Véhicule personnel</span>
+            </li>
+          </ul>
+        </div>
+        <div class="about__image-wrap">
+          <div class="about__image-placeholder">
+            <img src="photoProfil.jpg" alt="Nathan Brault" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPÉTENCES -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">02 — Compétences</span>
+        <h2 class="section__title">Ce que je maîtrise</h2>
+      </div>
+      <div class="skills__grid">
+
+        <div class="skill-card">
+          <div class="skill-card__icon">⌨</div>
+          <h3 class="skill-card__title">Programmation</h3>
+          <ul class="skill-card__list">
+            <li>Python</li>
+            <li>Java (POO)</li>
+            <li>C++</li>
+          </ul>
+          <!--<div class="skill-card__bar">
+            <div class="skill-card__fill" style="--pct: 75%"></div>
+          </div>-->
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card__icon">🌐</div>
+          <h3 class="skill-card__title">Web</h3>
+          <ul class="skill-card__list">
+            <li>HTML / CSS</li>
+            <li>JavaScript</li>
+          </ul>
+          <!--<div class="skill-card__bar">
+            <div class="skill-card__fill" style="--pct: 65%"></div>
+          </div>-->
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card__icon">🗄️</div>
+          <h3 class="skill-card__title">Bases de données</h3>
+          <ul class="skill-card__list">
+            <li>SQL</li>
+            <li>MySQL</li>
+            <li>Oracle</li>
+          </ul>
+          <!--<div class="skill-card__bar">
+            <div class="skill-card__fill" style="--pct: 60%"></div>
+          </div>-->
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card__icon">🔧</div>
+          <h3 class="skill-card__title">Outils</h3>
+          <ul class="skill-card__list">
+            <li>Git</li>
+            <li>Visual Studio / Eclipse</li>
+            <li>Windows &amp; Linux</li>
+          </ul>
+          <!--<div class="skill-card__bar">
+            <div class="skill-card__fill" style="--pct: 70%"></div>
+          </div>-->
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETS -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">03 — Projets</span>
+        <h2 class="section__title">Mes réalisations</h2>
+      </div>
+      <div class="projects__grid">
+
+        <article class="project-card">
+          <div class="project-card__num">01</div>
+          <div class="project-card__body">
+            <span class="project-card__tag">Base de données</span>
+            <h3 class="project-card__title">Gestion d'une boulangerie</h3>
+            <p class="project-card__desc">
+              Analyse des besoins d'une boulangerie locale pour modéliser ses flux (stocks, ventes, commandes). Conception du MCD et du Schéma Relationnel, puis développement des scripts SQL de création de tables et de requêtes d'interrogation.
+            </p>
+            <div class="project-card__stack">
+              <span class="badge">SQL</span>
+              <span class="badge">MySQL</span>
+              <span class="badge">MCD / SR</span>
+            </div>
+          </div>
+          <div class="project-card__links">
+            <!--<a href="#" class="project-link">GitHub →</a>-->
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card__num">02</div>
+          <div class="project-card__body">
+            <span class="project-card__tag">Web</span>
+            <h3 class="project-card__title">Site vitrine — Agence de voyage</h3>
+            <p class="project-card__desc">
+              Conception et développement d'un site web pour une agence fictive, interface responsive (mobile / tablette / desktop) en HTML/CSS avec scripts JavaScript pour dynamiser l'expérience utilisateur.
+            </p>
+            <div class="project-card__stack">
+              <span class="badge">HTML</span>
+              <span class="badge">CSS</span>
+              <span class="badge">JavaScript</span>
+            </div>
+          </div>
+          <div class="project-card__links">
+            <!--<a href="#" class="project-link">GitHub →</a>
+            <a href="#" class="project-link">Démo →</a>-->
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card__num">03</div>
+          <div class="project-card__body">
+            <span class="project-card__tag">Jeu vidéo</span>
+            <h3 class="project-card__title">Jeu vidéo casual — Pygame</h3>
+            <p class="project-card__desc">
+              Conception et programmation intégrale d'un jeu vidéo en Python avec la bibliothèque Pygame : interface graphique interactive, gestion des entrées utilisateur et système algorithmique de vérification d'unicité des pièces.
+            </p>
+            <div class="project-card__stack">
+              <span class="badge">Python</span>
+              <span class="badge">Pygame</span>
+            </div>
+          </div>
+          <div class="project-card__links">
+            <!--<a href="#" class="project-link">GitHub →</a>-->
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">04 — Contact</span>
+        <h2 class="section__title">Travaillons ensemble</h2>
+      </div>
+      <div class="contact__solo">
+        <p class="contact__lead">
+          Vous recherchez un alternant motivé et curieux ? Je serais ravi d'échanger avec vous.
+        </p>
+        <ul class="contact__links">
+          <li>
+            <span class="contact__icon">✉</span>
+            <a href="mailto:nathbrault2207@gmail.com">nathbrault2207@gmail.com</a>
+          </li>
+          <li>
+            <span class="contact__icon">📞</span>
+            <a href="tel:+33777379985">07 77 37 99 85</a>
+          </li>
+          <li>
+            <span class="contact__icon">lk</span>
+            <a href="https://linktr.ee/nathanbrault" target="_blank">linktr.ee/nathanbrault</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="footer__name">Nathan Brault · Portfolio 2025</span>
+      <!--<span class="footer__credit">Fait avec ♥ &amp; HTML</span>-->
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
